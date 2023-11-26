@@ -150,8 +150,6 @@ alias togdm="sudo pacman -S gdm --noconfirm --needed ; sudo systemctl enable gdm
 alias tolxdm="sudo pacman -S lxdm --noconfirm --needed ; sudo systemctl enable lxdm.service -f ; echo 'Lxdm is active - reboot now'"
 
 # kill commands
-# quickly kill conkies
-alias kc='killall conky'
 # quickly kill polybar
 alias kp='killall polybar'
 # quickly kill picom
