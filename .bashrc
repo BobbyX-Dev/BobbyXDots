@@ -1,6 +1,6 @@
 ### EXPORT ###
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='micro'
+export VISUAL='micro'
 export HISTCONTROL=ignoreboth:erasedups
 export PAGER='most'
 
@@ -11,8 +11,8 @@ export PAGER='most'
 #export XMODIFIERS=@im=dbus
 #export QT_IM_MODULE=ibus
 
-PS1='[\u@\h \W]\$ '
-
+#PS1='[\u@\h \W]\$ '
+PS1='\[\e[96m\]󰣇 \[\e[0m\]- \u \[\e[93m\]\w \[\e[0m\](\[\e[92;1m\]$(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2)\[\e[0m\])\n\$ '
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -29,9 +29,9 @@ fi
 bind "set completion-ignore-case on"
 
 ### ALIASES ###
-
+alias reload='source ~/.bashrc'
 #list
-alias ls='ls --color=auto'
+alias ls='eza --header --long --octal-permissions'
 alias la='ls -a'
 alias ll='ls -alFh'
 alias l='ls'
@@ -150,6 +150,8 @@ alias togdm="sudo pacman -S gdm --noconfirm --needed ; sudo systemctl enable gdm
 alias tolxdm="sudo pacman -S lxdm --noconfirm --needed ; sudo systemctl enable lxdm.service -f ; echo 'Lxdm is active - reboot now'"
 
 # kill commands
+# quickly kill conkies
+alias kc='killall conky'
 # quickly kill polybar
 alias kp='killall polybar'
 # quickly kill picom
@@ -383,7 +385,6 @@ alias awa="arcolinux-welcome-app"
 #git
 alias rmgitcache="rm -r ~/.cache/git"
 alias grh="git reset --hard"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 #pamac
 alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
@@ -411,4 +412,4 @@ alias personal='cp -Rf /personal/* ~'
 #sysinfo-retro
 #cpufetch
 #colorscript random
-#hyfetch
+fastfetch --logo none
